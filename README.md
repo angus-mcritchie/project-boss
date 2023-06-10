@@ -45,7 +45,7 @@ By default, it scans your `~/projects` folder for files commonly included in dev
 ```
 
 ## Release Notes
-### 1.0.0
+### 0.0.1
 The initial release of Project Boss.
 
 **Enjoy!**
