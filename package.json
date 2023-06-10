@@ -2,11 +2,12 @@
   "name": "project-boss",
   "displayName": "Project Boss",
   "description": "Quickly find and open your projects with folder scanning & nesting.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.79.0"
   },
   "icon": "icon.png",
+  "publisher": "angus-mcritchie",
   "repository": {
     "type": "git",
     "url": "https://github.com/angus-mcritchie/project-boss"
