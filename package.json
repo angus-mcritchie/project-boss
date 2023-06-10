@@ -1,0 +1,116 @@
+{
+  "name": "project-boss",
+  "displayName": "project-boss",
+  "description": "Quickly find and open your projects with folder scanning & nesting.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/angus-mcritchie/project-boss",
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:project-boss.helloWorld"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "project-boss.listProjects",
+        "title": "Project Boss: List Projects"
+      },
+      {
+        "command": "project-boss.openInNewWindow",
+        "title": "Project Boss: Open in new Window",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "project-boss.open",
+        "title": "Open"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "project-boss",
+          "title": "Project Boss",
+          "icon": "icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "project-boss": [
+        {
+          "id": "projects",
+          "name": "Projects"
+        }
+      ]
+    },
+    "menus": {
+      "view/item/context": [
+        {
+          "command": "project-boss.openInNewWindow",
+          "when": "true",
+          "group": "inline"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Project Boss",
+      "description": "Configure Project Boss",
+      "properties": {
+        "maxDepth": {
+          "type": "integer",
+          "default": 2,
+          "description": "Max folder depth to scan for projects. A \"project\" is a folder that contains a .git folder or a .vscode folder."
+        },
+        "projectsDirectory": {
+          "type": "string",
+          "default": "~/projects",
+          "description": "Root directory to scan for projects."
+        },
+        "blackListRegex": {
+          "type": "string",
+          "default": "^(vendor|node_modules|dist|src|assets|images)$",
+          "description": "Regex to exclude projects from the list. This is applied to the full path of the project."
+        },
+        "projectIdentifierRegex": {
+          "type": "string",
+          "default": "\\.(git|package\\.json|vscode|project\\-boss)",
+          "description": "Regex to identify projects. This is applied to the full path of the project."
+        }
+      }
+    },
+    "scripts": {
+      "vscode:prepublish": "npm run package",
+      "compile": "webpack",
+      "watch": "webpack --watch",
+      "package": "webpack --mode production --devtool hidden-source-map",
+      "compile-tests": "tsc -p . --outDir out",
+      "watch-tests": "tsc -p . -w --outDir out",
+      "pretest": "npm run compile-tests && npm run compile && npm run lint",
+      "lint": "eslint src --ext ts",
+      "test": "node ./out/test/runTest.js"
+    },
+    "devDependencies": {
+      "@types/vscode": "^1.79.0",
+      "@types/glob": "^8.0.0",
+      "@types/mocha": "^10.0.1",
+      "@types/node": "16.x",
+      "@typescript-eslint/eslint-plugin": "^5.45.0",
+      "@typescript-eslint/parser": "^5.45.0",
+      "eslint": "^8.28.0",
+      "glob": "^8.0.3",
+      "mocha": "^10.1.0",
+      "typescript": "^4.9.3",
+      "ts-loader": "^9.4.1",
+      "webpack": "^5.75.0",
+      "webpack-cli": "^5.0.0",
+      "@vscode/test-electron": "^2.2.0"
+    }
+  }
+}
