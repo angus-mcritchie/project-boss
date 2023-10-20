@@ -64,7 +64,7 @@
       "view/item/context": [
         {
           "command": "project-boss.openInNewWindow",
-          "when": "true",
+          "when": "view == projects",
           "group": "inline"
         }
       ]
