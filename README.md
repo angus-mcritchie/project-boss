@@ -48,4 +48,7 @@ By default, it scans your `~/projects` folder for files commonly included in dev
 ### 0.0.1
 The initial release of Project Boss.
 
+### 0.0.4
+Fixed bug causing the open in new window context button displaying on other menus.
+
 **Enjoy!**
