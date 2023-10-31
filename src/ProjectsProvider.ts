@@ -12,8 +12,9 @@ export default class ProjectsProvider {
     private maxDepth: number;
 
     constructor(root: string | null = null) {
+
         if (!root) {
-            root = vscode.workspace.getConfiguration('project-boss').get('projectsDirectory', '~/projects');
+            root = vscode.workspace.getConfiguration().get('projectsDirectory', '~/projects');
         }
 
         if (root.startsWith('~')) {
@@ -31,6 +32,10 @@ export default class ProjectsProvider {
                 }
             });
         }
+
+        this.projectIdentifierRegex = new RegExp(vscode.workspace.getConfiguration().get('projectIdentifierRegex', '\.(git|package\.json|vscode|project\-boss)'), 'i');
+        this.blackListRegex = new RegExp(vscode.workspace.getConfiguration().get('blackListRegex', '^(vendor|node_modules|dist|src|assets|images)$'), 'i');
+        this.maxDepth = vscode.workspace.getConfiguration().get('maxDepth', 2);
         this.root = root;
     }
 
