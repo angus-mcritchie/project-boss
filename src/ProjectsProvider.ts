@@ -20,9 +20,17 @@ export default class ProjectsProvider {
             root = path.join(os.homedir(), root.slice(1));
         }
 
-        this.projectIdentifierRegex = new RegExp(vscode.workspace.getConfiguration('project-boss').get('projectIdentifierRegex', '\.(git|package\.json|vscode|project\-boss)'), 'i');
-        this.blackListRegex = new RegExp(vscode.workspace.getConfiguration('project-boss').get('blackListRegex', '^(vendor|node_modules|dist|src|assets|images)$'), 'i');
-        this.maxDepth = vscode.workspace.getConfiguration('project-boss').get('maxDepth', 2);
+        if (!fs.existsSync(root)) {
+
+            const openSettings = 'Open Settings';
+            const message = 'Project Boss Error: Projects directory does not exist "' + root + '".';
+
+            vscode.window.showErrorMessage(message, openSettings).then((value) => {
+                if (value === openSettings) {
+                    vscode.commands.executeCommand('workbench.action.openSettings', 'projectsDirectory');
+                }
+            });
+        }
         this.root = root;
     }
 
