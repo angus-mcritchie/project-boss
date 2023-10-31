@@ -8,7 +8,7 @@ export default class ProjectsTreeDataProvider implements vscode.TreeDataProvider
         return element;
     }
 
-    getChildren(project?: Project): vscode.Thenable<Project[]> {
+    getChildren(project?: Project): Thenable<Project[]> {
 
         const root = project ? project.fullPath : null;
 
