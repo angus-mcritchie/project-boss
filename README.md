@@ -51,4 +51,8 @@ The initial release of Project Boss.
 ### 0.0.4
 Fixed bug causing the open in new window context button displaying on other menus.
 
+### 0.0.5
+Fixed bug where settings were locked onto using the defaults.
+Added project root directory exists error message.
+
 **Enjoy!**
