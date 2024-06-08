@@ -52,17 +52,17 @@ By default, it scans your `~/projects` folder for files commonly included in dev
         "default": "\\.(git|package\\.json|vscode|project\\-boss)",
         "description": "Regex to identify projects. This is applied to the full path of the project."
     },
-    "openProjectsInWsl": {
+    "project-boss.openProjectsInWsl": {
         "type": "boolean",
         "default": false,
         "description": "Open projects in WSL (Windows Subsystem for Linux)."
     },
-    "openProjectsInWslUsingDistro": {
+    "project-boss.openProjectsInWslUsingDistro": {
         "type": "string",
         "default": "Ubuntu",
         "description": "WSL distro to use when opening projects in WSL."
     },
-    "wslRemotePath": {
+    "project-boss.wslRemotePath": {
         "type": "string",
         "default": "/home/username/projects",
         "description": "Path to the projects directory on the WSL filesystem (used when openProjectsInWsl in enabled)."
@@ -72,11 +72,15 @@ By default, it scans your `~/projects` folder for files commonly included in dev
 
 ## Release Notes
 
+### 0.1.1
+* Added prefix to settings.
+  * Thanks [Radimir Mikhailov](https://github.com/radimih)
+
 ### 0.1.0
 * Added support to open files in WSL with a specific distro 🥳
 * Updated tooltip to show the relative path of the project (instead of the full path).
 
-* Added select project in command palate and fix [issue #1](https://github.com/angus-mcritchie/project-boss/issues/1) thanks for reporting this [MartinWallgren](https://github.com/MartinWallgren).
+* Added select project in command palate and fix [issue #1](https://github.com/angus-mcritchie/project-boss/issues/1) thanks for reporting this [Martin Wallgren](https://github.com/MartinWallgren).
 * Added usage recording to README.
 
 ### 0.0.5

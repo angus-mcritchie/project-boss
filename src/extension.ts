@@ -9,9 +9,6 @@ import { resolveProject } from './ProjectSelector';
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-
-	vscode.window.showInformationMessage('Project Boss is now active!');
-
 	context.subscriptions.push(vscode.commands.registerCommand('project-boss.listProjects', async () => {
 		vscode.window.createTreeView('projects', {
 			treeDataProvider: new ProjectsTreeDataProvider(),

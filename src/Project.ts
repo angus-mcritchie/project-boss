@@ -44,12 +44,12 @@ export class Project extends vscode.TreeItem {
 
     getFileUri() {
 
-        if (!vscode.workspace.getConfiguration().get('openProjectsInWsl', false)) {
+        if (!vscode.workspace.getConfiguration('project-boss').get('openProjectsInWsl', false)) {
             return vscode.Uri.file(this.fullPath);
         }
 
-        const distro = vscode.workspace.getConfiguration().get('openProjectsInWslUsingDistro', 'Ubuntu');
-        const remotePath = vscode.workspace.getConfiguration().get('wslRemotePath', '/home/username/projects');
+        const distro = vscode.workspace.getConfiguration('project-boss').get('openProjectsInWslUsingDistro', 'Ubuntu');
+        const remotePath = vscode.workspace.getConfiguration('project-boss').get('wslRemotePath', '/home/username/projects');
         let uri = this.relativePath;
 
         uri = path.join(remotePath, uri);
@@ -59,7 +59,7 @@ export class Project extends vscode.TreeItem {
     }
 
     getRelativePath() {
-        let root = vscode.workspace.getConfiguration().get('projectsDirectory', '~/projects');
+        let root = vscode.workspace.getConfiguration('project-boss').get('projectsDirectory', '~/projects');
         let uri = this.fullPath;
 
         if (root.startsWith('~')) {

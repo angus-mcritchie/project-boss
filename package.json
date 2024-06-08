@@ -2,7 +2,7 @@
   "name": "project-boss",
   "displayName": "Project Boss",
   "description": "Quickly find and open your projects with folder scanning & nesting.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -93,17 +93,17 @@
           "default": "\\.(git|package\\.json|vscode|project\\-boss)",
           "description": "Regex to identify projects. This is applied to the full path of the project."
         },
-        "openProjectsInWsl": {
+        "project-boss.openProjectsInWsl": {
           "type": "boolean",
           "default": false,
           "description": "Open projects in WSL (Windows Subsystem for Linux)."
         },
-        "openProjectsInWslUsingDistro": {
+        "project-boss.openProjectsInWslUsingDistro": {
           "type": "string",
           "default": "Ubuntu",
           "description": "WSL distro to use when opening projects in WSL."
         },
-        "wslRemotePath": {
+        "project-boss.wslRemotePath": {
           "type": "string",
           "default": "/home/username/projects",
           "description": "Path to the projects directory on the WSL filesystem (used when openProjectsInWsl in enabled)."
