@@ -2,7 +2,7 @@
   "name": "project-boss",
   "displayName": "Project Boss",
   "description": "Quickly find and open your projects with folder scanning & nesting.",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.79.0"
   },
@@ -35,12 +35,12 @@
       },
       {
         "command": "project-boss.openInNewWindow",
-        "title": "Project Boss: Open in new Window",
+        "title": "Project Boss: Open Project in new Window",
         "icon": "$(link-external)"
       },
       {
         "command": "project-boss.open",
-        "title": "Open"
+        "title": "Project Boss: Open Project"
       }
     ],
     "viewsContainers": {
@@ -81,7 +81,7 @@
         "projectsDirectory": {
           "type": "string",
           "default": "~/projects",
-          "description": "Root directory to scan for projects."
+          "description": "Root directory to scan for projects, if you're using WSL, we recommend opening the path on Windows file explorer, navigating to the WSL project path and copy it from the address bar."
         },
         "blackListRegex": {
           "type": "string",
@@ -92,6 +92,21 @@
           "type": "string",
           "default": "\\.(git|package\\.json|vscode|project\\-boss)",
           "description": "Regex to identify projects. This is applied to the full path of the project."
+        },
+        "openProjectsInWsl": {
+          "type": "boolean",
+          "default": false,
+          "description": "Open projects in WSL (Windows Subsystem for Linux)."
+        },
+        "openProjectsInWslUsingDistro": {
+          "type": "string",
+          "default": "Ubuntu",
+          "description": "WSL distro to use when opening projects in WSL."
+        },
+        "wslRemotePath": {
+          "type": "string",
+          "default": "/home/username/projects",
+          "description": "Path to the projects directory on the WSL filesystem (used when openProjectsInWsl in enabled)."
         }
       }
     }

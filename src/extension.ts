@@ -3,13 +3,14 @@
 import * as vscode from 'vscode';
 import ProjectsTreeDataProvider from './ProjectsTreeDataProvider';
 import { Project } from './Project';
+import { resolveProject } from './ProjectSelector';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
+
+	vscode.window.showInformationMessage('Project Boss is now active!');
 
 	context.subscriptions.push(vscode.commands.registerCommand('project-boss.listProjects', async () => {
 		vscode.window.createTreeView('projects', {
@@ -20,12 +21,26 @@ export function activate(context: vscode.ExtensionContext) {
 
 	vscode.commands.executeCommand('project-boss.listProjects');
 
-	context.subscriptions.push(vscode.commands.registerCommand('project-boss.open', async (project: Project) => {
-		vscode.commands.executeCommand('vscode.openFolder', vscode.Uri.file(project.fullPath));
+	context.subscriptions.push(vscode.commands.registerCommand('project-boss.open', async (project: null | Project = null) => {
+		project = await resolveProject(project);
+
+		if (!project) {
+			vscode.window.showWarningMessage('No project selected.');
+			return;
+		}
+
+		project.openInNewWindow();
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('project-boss.openInNewWindow', async (project: Project) => {
-		vscode.commands.executeCommand('vscode.openFolder', vscode.Uri.file(project.fullPath), true);
+	context.subscriptions.push(vscode.commands.registerCommand('project-boss.openInNewWindow', async (project: null | Project = null) => {
+		project = await resolveProject(project);
+
+		if (!project) {
+			vscode.window.showWarningMessage('No project selected.');
+			return;
+		}
+
+		project.openInNewWindow();
 	}));
 }
 
