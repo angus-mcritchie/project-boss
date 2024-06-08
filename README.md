@@ -32,22 +32,22 @@ By default, it scans your `~/projects` folder for files commonly included in dev
 ## Extension Settings
 ``` json
 "properties": {
-    "maxDepth": {
+    "project-boss.maxDepth": {
         "type": "integer",
         "default": 2,
         "description": "Max folder depth to scan for projects. A \"project\" is a folder that contains a .git folder or a .vscode folder."
     },
-    "projectsDirectory": {
+    "project-boss.projectsDirectory": {
         "type": "string",
         "default": "~/projects",
         "description": "Root directory to scan for projects, if you're using WSL, we recommend opening the path on Windows file explorer, navigating to the WSL project path and copy it from the address bar."
     },
-    "blackListRegex": {
+    "project-boss.blackListRegex": {
         "type": "string",
         "default": "^(vendor|node_modules|dist|src|assets|images)$",
         "description": "Regex to exclude projects from the list. This is applied to the full path of the project."
     },
-    "projectIdentifierRegex": {
+    "project-boss.projectIdentifierRegex": {
         "type": "string",
         "default": "\\.(git|package\\.json|vscode|project\\-boss)",
         "description": "Regex to identify projects. This is applied to the full path of the project."
