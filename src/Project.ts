@@ -34,7 +34,6 @@ export class Project extends vscode.TreeItem {
     }
 
     open(newWindow: boolean = false) {
-
         vscode.commands.executeCommand('vscode.openFolder', this.getFileUri(), { forceNewWindow: newWindow });
     }
 
