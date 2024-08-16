@@ -72,6 +72,10 @@ By default, it scans your `~/projects` folder for files commonly included in dev
 
 ## Release Notes
 
+### 0.1.2
+* Fix open project in new window bug.
+  * Thanks [Samba25leo](https://github.com/Samba25leo)
+
 ### 0.1.1
 * Added prefix to settings.
   * Thanks [Radimir Mikhailov](https://github.com/radimih)
