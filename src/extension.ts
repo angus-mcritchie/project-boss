@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		project.openInNewWindow();
+		project.open();
 	}));
 
 	context.subscriptions.push(vscode.commands.registerCommand('project-boss.openInNewWindow', async (project: null | Project = null) => {
